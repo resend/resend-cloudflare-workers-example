@@ -2,5 +2,5 @@
 // by running `wrangler types`
 
 interface Env {
-	RESEND_API_KEY: string;
+	// RESEND_API_KEY: string;
 }
