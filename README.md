@@ -15,18 +15,8 @@ To get the most out of this guide, you’ll need to:
 
 Get the Resend Node.js SDK.
 
-<CodeGroup>
-
-```bash npm
+```bash
 npm install resend
-```
-
-```bash yarn
-yarn add resend
-```
-
-```bash pnpm
-pnpm add resend
 ```
 
 </CodeGroup>
@@ -35,7 +25,7 @@ pnpm add resend
 
 Start by creating your email template on `src/emails/email-template.tsx`:
 
-```tsx src/emails/email-template.tsx
+```tsx
 import * as React from 'react';
 
 interface EmailTemplateProps {
@@ -59,7 +49,7 @@ Change the file extension of the worker's main file to `tsx` and modify your con
 
 After that, you can send your email using the `react` parameter:
 
-```tsx src/index.tsx
+```tsx
 import { Resend } from 'resend';
 import { EmailTemplate } from './emails/email-template';
 
