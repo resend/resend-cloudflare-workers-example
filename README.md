@@ -19,8 +19,6 @@ Get the Resend Node.js SDK.
 npm install resend
 ```
 
-</CodeGroup>
-
 ### 2. Create an email template
 
 Start by creating your email template on `src/emails/email-template.tsx`:
@@ -50,11 +48,12 @@ Change the file extension of the worker's main file to `tsx` and modify your con
 After that, you can send your email using the `react` parameter:
 
 ```tsx
+import * as React from 'react';
 import { Resend } from 'resend';
 import { EmailTemplate } from './emails/email-template';
 
 export default {
-  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+  async fetch(request, env, context): Promise<Response> {
     const resend = new Resend('re_123456789');
 
     const data = await resend.emails.send({
@@ -62,15 +61,11 @@ export default {
       to: ['delivered@resend.dev'],
       subject: 'hello world',
       react: <EmailTemplate firstName="John" />,
-    }):
-
-    return new Response(JSON.stringify(data), {
-      headers: {
-        'Content-Type': 'application/json',
-      },
     });
+
+    return Response.json(data);
   },
-};
+} satisfies ExportedHandler<Env, ExecutionContext>;
 ```
 
 ### 4. Deploy and send email
