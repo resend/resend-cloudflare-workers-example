@@ -1,9 +1,10 @@
+import * as React from 'react';
 import { Resend } from 'resend';
 import { EmailTemplate } from './emails/email-template';
 
 export default {
-	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-		const resend = new Resend('re_123456789'/* env.RESEND_API_KEY */);
+	async fetch(request, env, context): Promise<Response> {
+		const resend = new Resend('re_123456789' /* env.RESEND_API_KEY */);
 
 		const data = await resend.emails.send({
 			from: 'Acme <onboarding@resend.dev>',
@@ -12,10 +13,6 @@ export default {
 			react: <EmailTemplate firstName="John" />,
 		});
 
-		return new Response(JSON.stringify(data), {
-			headers: {
-				'Content-Type': 'application/json',
-			},
-		});
+		return Response.json(data);
 	},
-};
+} satisfies ExportedHandler<Env, ExecutionContext>;
