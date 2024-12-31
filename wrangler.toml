@@ -1,8 +1,14 @@
 #:schema node_modules/wrangler/config-schema.json
-name = "resend-cloudflare-workers-example"
+name = "resend-cloudflare-worker"
 main = "src/index.tsx"
 compatibility_date = "2024-04-23"
 compatibility_flags = ["nodejs_compat"]
+
+# Workers Logs
+# Docs: https://developers.cloudflare.com/workers/observability/logs/workers-logs/
+# Configuration: https://developers.cloudflare.com/workers/observability/logs/workers-logs/#enable-workers-logs
+[observability]
+enabled = true
 
 # Automatically place your workloads in an optimal location to minimize latency.
 # If you are running back-end logic in a Worker, running it closer to your back-end infrastructure
