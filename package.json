@@ -1,5 +1,5 @@
 {
-  "name": "resend-cloudflare-workers-example",
+  "name": "resend-cloudflare-worker",
   "version": "0.0.0",
   "private": true,
   "scripts": {
