@@ -1,4 +1,6 @@
 import { Resend } from 'resend';
+import { Response, type Request, type ExecutionContext } from "@cloudflare/workers-types";
+
 import { EmailTemplate } from './emails/email-template';
 
 export default {
