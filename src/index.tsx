@@ -1,12 +1,14 @@
+import type { Response, Request, ExecutionContext } from "@cloudflare/workers-types";
 import { Resend } from 'resend';
-import { Response, type Request, type ExecutionContext } from "@cloudflare/workers-types";
 
 import { EmailTemplate } from './emails/email-template';
 
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
 		if (request.method !== "POST") {
-			return new Response(null, { status: 403, statusText: 'Method not allowed' });
+			return new Response(null, {
+				status: 403
+			});
 		}
 
 		const formData = await request.formData();
@@ -46,23 +48,39 @@ export default {
 			});
 		}
 
-		const resend = new Resend(env.RESEND_API_KEY);
-
-		const data = await resend.emails.send({
+		const req = {
 			from: `${name} <${email}>`,
 			to: [env.RESEND_RECIPIENT],
 			subject,
+		};
+
+		console.log({
+			stage: 'request',
+			payload: req
+		});
+
+		const resend = new Resend(env.RESEND_API_KEY);
+
+		const res = await resend.emails.send({
+			...req,
 			react: <EmailTemplate firstName={name} />,
 		});
 
 		console.log({
-			name,
-			email,
-			subject,
-			message
+			stage: 'response',
+			payload: res
 		});
 
-		return new Response(JSON.stringify(data), {
+		if (res.error) {
+			return new Response(JSON.stringify(res.error), {
+				status: 500,
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			});
+		}
+
+		return new Response(JSON.stringify(res.data), {
 			headers: {
 				'Content-Type': 'application/json',
 			},
