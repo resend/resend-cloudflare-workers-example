@@ -17,13 +17,33 @@ export default {
 		const message = formData.get('message');
 
 		if (!name) {
-			return new Response(null, { status: 403, statusText: 'Name must be provided' });
+			return new Response('Name must be provided', {
+				status: 403,
+				headers: {
+					'Content-type': 'text/plain'
+				}
+			});
 		} else if (!email) {
-			return new Response(null, { status: 403, statusText: 'Email must be provided' });
+			return new Response('Email must be provided', {
+				status: 403,
+				headers: {
+					'Content-type': 'text/plain'
+				}
+			});
 		} else if (!subject) {
-			return new Response(null, { status: 403, statusText: 'Subject must be provided' });
+			return new Response('Subject must be provided', {
+				status: 403,
+				headers: {
+					'Content-type': 'text/plain'
+				}
+			});
 		} else if (!message) {
-			return new Response(null, { status: 403, statusText: 'Message must be provided' });
+			return new Response('Message must be provided', {
+				status: 403,
+				headers: {
+					'Content-type': 'text/plain'
+				}
+			});
 		}
 
 		const resend = new Resend(env.RESEND_API_KEY);
