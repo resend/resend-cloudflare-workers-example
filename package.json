@@ -17,7 +17,7 @@
     "@cloudflare/workers-types": "4.20250606.0",
     "@types/react": "19.1.6",
     "@types/react-dom": "19.1.6",
-    "typescript": "5.0.4",
+    "typescript": "5.8.3",
     "wrangler": "4.0.0"
   },
   "packageManager": "pnpm@10.11.1"
