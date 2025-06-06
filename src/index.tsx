@@ -7,7 +7,7 @@ export default {
     env: Env,
     ctx: ExecutionContext,
   ): Promise<Response> {
-    const resend = new Resend('re_123456789' /* env.RESEND_API_KEY */);
+    const resend = new Resend(env.RESEND_API_KEY);
 
     const data = await resend.emails.send({
       from: 'Acme <onboarding@resend.dev>',
