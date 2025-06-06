@@ -3,19 +3,16 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "deploy": "wrangler deploy",
     "dev": "wrangler dev",
-    "start": "wrangler dev",
-    "test": "vitest",
-    "cf-typegen": "wrangler types"
+    "lint:fix": "biome check . --write",
+    "lint": "biome check ."
   },
   "devDependencies": {
-    "@cloudflare/vitest-pool-workers": "^0.8.36",
+    "@biomejs/biome": "1.9.4",
     "@cloudflare/workers-types": "^4.20240423.0",
     "@types/react": "19.1.6",
     "@types/react-dom": "19.1.6",
     "typescript": "^5.0.4",
-    "vitest": "3.2.2",
     "wrangler": "^4.0.0"
   },
   "dependencies": {
