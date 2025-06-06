@@ -21,6 +21,6 @@
   "dependencies": {
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "resend": "3.2.0"
+    "resend": "4.5.2"
   }
 }
