@@ -13,4 +13,3 @@ export function EmailTemplate({ firstName }: EmailTemplateProps) {
 }
 
 export default EmailTemplate;
-
