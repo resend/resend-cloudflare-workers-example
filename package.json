@@ -19,7 +19,7 @@
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
     "typescript": "5.8.3",
-    "wrangler": "4.31.0"
+    "wrangler": "4.78.0"
   },
   "packageManager": "pnpm@10.13.1"
 }
