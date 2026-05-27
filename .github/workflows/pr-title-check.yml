@@ -6,7 +6,7 @@ jobs:
   pr-title-check:
     runs-on: depot-ubuntu-22.04-4
     container:
-      image: node:22
+      image: node:24
       credentials:
         username: ${{ vars.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_API_KEY }}
