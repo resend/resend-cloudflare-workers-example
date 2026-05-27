@@ -13,7 +13,7 @@
     "resend": "6.0.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.0",
+    "@biomejs/biome": "2.4.16",
     "@cloudflare/workers-types": "4.20250821.0",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
