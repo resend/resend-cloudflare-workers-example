@@ -8,15 +8,15 @@
     "lint": "biome check ."
   },
   "dependencies": {
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
     "resend": "6.0.1"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
     "@cloudflare/workers-types": "4.20250821.0",
-    "@types/react": "19.1.8",
-    "@types/react-dom": "19.1.6",
+    "@types/react": "19.2.15",
+    "@types/react-dom": "19.2.3",
     "typescript": "5.8.3",
     "wrangler": "4.31.0"
   },
